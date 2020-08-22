@@ -34,7 +34,7 @@ Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not 
 
 * ***2.2.2 Create & Build  Catkin Workspace***
 
-	Follow instructions [here](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#create-a-catkin-workspace-and-download-moveit-source), or watch [this video]([https://www.youtube.com/watch?v=Ki5wL6RHiqs).
+	Follow instructions [here](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#create-a-catkin-workspace-and-download-moveit-source), or watch [this video](https://www.youtube.com/watch?v=Ki5wL6RHiqs).
 
 ### 2.3 Gazebo 
 Note: Gazebo 9.x is the official version fully integrated and supported by ROS Melodic.
@@ -47,10 +47,18 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 
 	1. [Test that stand-alone Gazebo works](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#Testthatstand-aloneGazeboworks)
 	2. [Test that you have the right version of Gazebo](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestthatyouhavetherightversionofGazebo)
+	
 		&nbsp; &nbsp; &nbsp; The outputs should be
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```/usr/bin/gzserver ```
-			    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```/usr/bin/gzclient ```
+		
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ```/usr/bin/gzserver ```
+		        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ```/usr/bin/gzclient ```
 
 * ***2.3.3 Install gazebo_ros_pkgs***
 
-```sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ```
+	```sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control ```
+	
+* ***2.3.4 Test Gazebo with ROS Integration***
+
+	Follow instructions [here](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestingGazebowithROSIntegration).
+	
+	
