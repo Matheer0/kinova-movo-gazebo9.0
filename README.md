@@ -48,12 +48,10 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 	1. [Test that stand-alone Gazebo works](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#Testthatstand-aloneGazeboworks)
 	2. [Test that you have the right version of Gazebo](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestthatyouhavetherightversionofGazebo)
 	
-		&nbsp; &nbsp; &nbsp; The outputs should be
+		&nbsp; &nbsp; &nbsp;The outputs should be
 		
-			 ```
 			 /usr/bin/gzserver 
-		         /usr/bin/gzclient 
-		         ```
+			 /usr/bin/gzclient
 
 * ***2.3.3 Install gazebo_ros_pkgs***
 
