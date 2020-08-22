@@ -50,8 +50,8 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 	
 		&nbsp; &nbsp; &nbsp; The outputs should be
 		
-			 &nbsp; &nbsp; ```/usr/bin/gzserver ```
-		         &nbsp; &nbsp; ```/usr/bin/gzclient ```
+			 ```/usr/bin/gzserver ```
+		         ```/usr/bin/gzclient ```
 
 * ***2.3.3 Install gazebo_ros_pkgs***
 
