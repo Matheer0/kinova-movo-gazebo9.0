@@ -71,7 +71,8 @@ Now, let's install the Kinova Movo simulator.
 
 	First, let's make a new folder for Kinova Movo in ~/catkin_ws/src , for example, 
 	
-	``` mkdir ~/catkin_ws/src/movo ```		
+	``` mkdir ~/catkin_ws/src/movo ```
+			
 	``` cd ~/catkin_ws/src/movo ```
 
 * ***2.4.2 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
