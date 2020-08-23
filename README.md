@@ -1,7 +1,8 @@
+
 # Launch Kinova Movo simulation on ROS Melodic (Ubuntu 18.04.4)
 
 
-## 1. System Requirement
+## 1. OS Requirement
 
 Ubuntu 18.04.4, which can be downloaded [here](http://old-releases.ubuntu.com/releases/bionic/ubuntu-18.04.4-desktop-amd64.iso).
 
@@ -9,7 +10,7 @@ If you plan to use a virtual machine, you can download [VirtualBox 6.0.24 and Ex
 
 
 
-## 2. Manual installation
+## 2. Manual Installation
 
 Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not on ROS Melodic), the official Kinova Movo automated installation script does not work properly. Thus, we need to install ROS Melodic, MoveIt 1.0 and Gazebo 9.x manually.
 
@@ -32,9 +33,11 @@ Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not 
 
 	``` sudo apt install ros-melodic-moveit```
 
-* ***2.2.2 Create & Build  Catkin Workspace***
+* ***2.2.2 [Create](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#create-a-catkin-workspace-and-download-moveit-source) & [Build](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#build-your-catkin-workspace) Catkin Workspace***
 
-	Follow instructions [here](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#create-a-catkin-workspace-and-download-moveit-source), or watch [this video](https://www.youtube.com/watch?v=Ki5wL6RHiqs).
+	Note: when you are building the workspace, if you get error message ```catkin: command not found ```, simply run command ```sudo apt-get install ros-melodic-catkin python-catkin-tools ``` to install catkin, and then repeat the previous step.
+
+	You can also follow [this video](https://www.youtube.com/watch?v=Ki5wL6RHiqs).
 
 ### 2.3 Gazebo 
 Note: Gazebo 9.x is the official version fully integrated and supported by ROS Melodic.
@@ -60,5 +63,22 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 * ***2.3.4 Test Gazebo with ROS Integration***
 
 	Follow instructions [here](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestingGazebowithROSIntegration).
+
+### 2.4 Kinova Movo 
+Now, let's install the Kinova Movo simulator.
+
+* ***2.4.1 Create a Workspace for Kinova Movo***
+
+	First, let's make a new folder for Kinova Movo in ~/catkin_ws/src , for example, we can do :
+			``` mkdir ~/catkin_ws/src/movo ```
+			``` cd ~/catkin_ws/src/movo ```
+
+* ***2.4.2 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
+
+	``` git clone https://github.com/Kinovarobotics/kinova-movo ```
+	
+* ***2.4.3 Build the Workspace***
+
+	``` cd ~/catkin_ws && catkin_make ```
 	
 	
