@@ -10,7 +10,7 @@ If you plan to use a virtual machine, you can download [VirtualBox 6.0.24 and Ex
 
 
 
-## 2. Manual Installation
+## 2. Required Software Installation
 
 Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not on ROS Melodic), the official Kinova Movo automated installation script does not work properly. Thus, we need to install ROS Melodic, MoveIt 1.0 and Gazebo 9.x manually.
 
@@ -64,22 +64,14 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 
 	Follow instructions [here](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestingGazebowithROSIntegration).
 
-### 2.4 Kinova Movo 
+## 3. Kinova Movo Installation
 Now, let's install the Kinova Movo simulator.
 
-* ***2.4.1 Create a Workspace for Kinova Movo***
-
-	First, let's make a new folder for Kinova Movo in ~/catkin_ws/src , for example, 
-	
-	``` mkdir ~/catkin_ws/src/movo ```
-			
-	``` cd ~/catkin_ws/src/movo ```
-
-* ***2.4.2 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
-
+* ***2.4.1 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
+	``` cd ~/catkin_ws/src ```
 	``` git clone https://github.com/Kinovarobotics/kinova-movo ```
 	
-* ***2.4.3 Build the Workspace***
+* ***2.4.2 Build the Workspace***
 
 	``` cd ~/catkin_ws && catkin_make ```
 	
