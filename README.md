@@ -68,7 +68,9 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 Now, let's install the Kinova Movo simulator.
 
 * ***2.4.1 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
+
 	``` cd ~/catkin_ws/src ```
+	
 	``` git clone https://github.com/Kinovarobotics/kinova-movo ```
 	
 * ***2.4.2 Build the Workspace***
