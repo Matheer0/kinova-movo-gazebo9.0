@@ -84,18 +84,15 @@ Now, let's install the Kinova MOVO packages.
 
 * ***3.3 Build the Workspace***
 
-	```diff 
-		Note: 
-	``` 
-There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
+	Note: There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
 
 	* Go to ROS catkin workspace ``` cd ~/catkin_ws ```
 
-	* Build the package:
+	* Build the package using command:
 
 		``` catkin_make -DCATKIN_BLACKLIST_PACKAGES="kinect2_bridge;kinect2_calibration;kinect2_viewer;kinect2_registration;gazebo_force_based_move;gazebo_grasp_plugin;range_sensor_filters;roboticsgroup_gazebo_plugins;eband_local_planner;movo_assisted_teleop;joint_trajectory_controller" ```
 
-		If you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do catkin_make command above again.
+		(If you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do catkin_make command above again.)
 
 * ***3.4 Lauch Kinova MOVO***
 
@@ -130,13 +127,6 @@ Currently, there are 11 packages that are causing error messages if we do comman
 	* ```joint_trajectory_controller ```, caused by [joint_trajectory_controller.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/joint_trajectory_controller/src/joint_trajectory_controller.cpp)
 
 ## 5. Helpful Links
-
-```
-ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
 
 
 	
