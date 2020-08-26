@@ -1,5 +1,5 @@
 
-# Launch Kinova Movo simulation on ROS Melodic (Ubuntu 18.04.4)
+# Launch Kinova MOVO simulation on ROS Melodic (Ubuntu 18.04.4)
 
 
 ## 1. OS Requirement
@@ -12,7 +12,7 @@ If you plan to use a virtual machine, you can download [VirtualBox 6.0.24 and Ex
 
 ## 2. Required Software Installation
 
-Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not on ROS Melodic), the official Kinova Movo automated installation script does not work properly. Thus, we need to install ROS Melodic, MoveIt 1.0 and Gazebo 9.x manually.
+Because Kinova MOVO is not officially supported on Ubuntu 18.04.4 (and thus not on ROS Melodic), the official MOVO automated installation script does not work properly. Thus, we need to install ROS Melodic, MoveIt 1.0 and Gazebo 9.x manually.
 
 ### 2.1 ROS
 
@@ -35,7 +35,7 @@ Because Kinova Movo is not officially supported on Ubuntu 18.04.4 (and thus not 
 
 * ***2.2.2 [Create](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#create-a-catkin-workspace-and-download-moveit-source) & [Build](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html#build-your-catkin-workspace) Catkin Workspace***
 
-	Note: when you are building the workspace, if you get error message ```catkin: command not found ```, simply run command ```sudo apt-get install ros-melodic-catkin python-catkin-tools ``` to install catkin, and then repeat the previous step.
+	Note: when you are building the workspace, if you get error message ```catkin: command not found ```, simply run command ```sudo apt-get install ros-melodic-catkin python-catkin-tools ``` to re-install catkin, and then repeat the previous step.
 
 	You can also follow [this video](https://www.youtube.com/watch?v=Ki5wL6RHiqs).
 
@@ -64,17 +64,42 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 
 	Follow instructions [here](http://gazebosim.org/tutorials?tut=ros_installing&cat=connect_ros#TestingGazebowithROSIntegration).
 
-## 3. Kinova Movo Installation
-Now, let's install the Kinova Movo simulator.
+## 3. Install and Launch Kinova MOVO
 
-* ***2.4.1 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
+Now, let's install the Kinova MOVO simulator.
+
+* ***3.1 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
 
 	``` cd ~/catkin_ws/src ```
 	
 	``` git clone https://github.com/Kinovarobotics/kinova-movo ```
 	
-* ***2.4.2 Build the Workspace***
+* ***3.2 Edit .bashrc File***
+	
+	* Add [following line](https://github.com/Kinovarobotics/kinova-movo/wiki/1.-Setup-Instructions#kinova-movo-package-install-on-development-computer) to .bashrc file, and source it
+	
+		```echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc ```
 
-	``` cd ~/catkin_ws && catkin_make ```
+	* Re-source your .bashrc with ```source ~/.bashrc```
+
+* ***3.3 Build the Workspace***
+
+	Note: there are some packages (see Section 4) that are problematic, so we will ignore them temporarily, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
+
+	* Go to ROS catkin workspace ``` cd ~/catkin_ws ```
+
+	* Build the package:
+
+		``` catkin_make -DCATKIN_BLACKLIST_PACKAGES="kinect2_bridge;kinect2_calibration;kinect2_viewer;kinect2_registration;gazebo_force_based_move;gazebo_grasp_plugin;range_sensor_filters;roboticsgroup_gazebo_plugins;eband_local_planner;movo_assisted_teleop;joint_trajectory_controller" ```
+
+		Note: if you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do ``` catkin_make ``` again.
+
+* ***3.4 Lauch Kinova MOVO***
+
+	Now, Kinova MOVO simulation can be launched in Gazebo using command 
+
+	```roslaunch movo_gazebo movo.launch ```
+
+
 	
 	
