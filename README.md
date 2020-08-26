@@ -92,7 +92,7 @@ Now, let's install the Kinova MOVO packages.
 
 		``` catkin_make -DCATKIN_BLACKLIST_PACKAGES="kinect2_bridge;kinect2_calibration;kinect2_viewer;kinect2_registration;gazebo_force_based_move;gazebo_grasp_plugin;range_sensor_filters;roboticsgroup_gazebo_plugins;eband_local_planner;movo_assisted_teleop;joint_trajectory_controller" ```
 
-		(If you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do catkin_make command above again.)
+		(If you get any CMake Error like "Could not find a package configuration file provided by ... ", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then repeat catkin_make command above.)
 
 * ***3.4 Lauch Kinova MOVO***
 
@@ -102,31 +102,39 @@ Now, let's install the Kinova MOVO packages.
 
 ## 4. Problematic MOVO Packages
 
-Currently, there are 11 packages that are causing error messages if we do command ```cd ~/catkin_ws && catkin_make ``` directly, either because of missing Freenect2 files or compilation errors from .cpp files in its src folder.
+Currently, if we do command ```cd ~/catkin_ws && catkin_make``` directly, there are 11 packages that are causing error messages, either because of missing Freenect2 files or compilation errors from .cpp files in the sub src folder.
 
-* Problematic packages cause by Freenect2:
+* Problematic packages due to Freenect2:
 
-	```kinect2_bridge ```, ```kinect2_calibration```, and ``` kinect2_viewer ```,  all in movo_common/movo_third_party/[iai_kinect2](https://github.com/Kinovarobotics/kinova-movo/tree/master/movo_common/movo_third_party/iai_kinect2)
+	```kinect2_bridge```, ```kinect2_calibration```, and ```kinect2_viewer```,  all in folder movo_common/movo_third_party/[iai_kinect2](https://github.com/Kinovarobotics/kinova-movo/tree/master/movo_common/movo_third_party/iai_kinect2)
 
-* Problematic packages cause by corresponding .cpp files:
+* Problematic packages due to corresponding .cpp files:
 
-	* ```kinect2_registration ```, caused by [kinect2_registration.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/iai_kinect2/kinect2_registration/src/kinect2_registration.cpp)
+	* ```kinect2_registration```, caused by [kinect2_registration.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/iai_kinect2/kinect2_registration/src/kinect2_registration.cpp)
 
-	* ```gazebo_force_based_move ```, caused by [gazebo_ros_force_based_move.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_force_based_move/src/gazebo_ros_force_based_move.cpp)
+	* ```gazebo_force_based_move```, caused by [gazebo_ros_force_based_move.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_force_based_move/src/gazebo_ros_force_based_move.cpp)
 
-	* ```gazebo_grasp_plugin ```, caused by [GazeboGraspFix.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_grasp_plugin/src/GazeboGraspFix.cpp)
+	* ```gazebo_grasp_plugin```, caused by [GazeboGraspFix.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_grasp_plugin/src/GazeboGraspFix.cpp)
 
-	* ```range_sensor_filters ```, caused by [range_sensor_filters.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_robot/movo_sensor_filters/range_sensor_filters/src/range_sensor_filters.cpp)
+	* ```range_sensor_filters```, caused by [range_sensor_filters.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_robot/movo_sensor_filters/range_sensor_filters/src/range_sensor_filters.cpp)
 
-	* ```roboticsgroup_gazebo_plugins ```, caused by [mimic_joint_plugin.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/roboticsgroup_gazebo_plugins/src/mimic_joint_plugin.cpp)
+	* ```roboticsgroup_gazebo_plugins```, caused by [mimic_joint_plugin.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/roboticsgroup_gazebo_plugins/src/mimic_joint_plugin.cpp)
 
-	* ```eband_local_planner ```, caused by [eband_local_planner_ros.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/eband_local_planner/src/eband_local_planner_ros.cpp)
+	* ```eband_local_planner```, caused by [eband_local_planner_ros.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/eband_local_planner/src/eband_local_planner_ros.cpp)
 
-	* ```movo_assisted_teleop ```, caused by [movo_assisted_teleop.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_navigation/movo_assisted_teleop/src/movo_assisted_teleop.cpp)
+	* ```movo_assisted_teleop```, caused by [movo_assisted_teleop.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_navigation/movo_assisted_teleop/src/movo_assisted_teleop.cpp)
 
-	* ```joint_trajectory_controller ```, caused by [joint_trajectory_controller.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/joint_trajectory_controller/src/joint_trajectory_controller.cpp)
+	* ```joint_trajectory_controller```, caused by [joint_trajectory_controller.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/joint_trajectory_controller/src/joint_trajectory_controller.cpp)
 
 ## 5. Helpful Links
+
+*  With the help of following detailed articles, you can get a feel of launching and controlling simulations in Gazebo, by using other (well supported) robots
+	* [TurtleBot3](https://automaticaddison.com/how-to-launch-the-turtlebot3-simulation-with-ros/)
+	* [PR2 Robot](http://wiki.ros.org/pr2_simulator/Tutorials/StartingPR2Simulation), and [control](http://wiki.ros.org/pr2_simulator/Tutorials/WorkingWithGazeboOverRos)
+
+* [Upgrade](https://www.theconstructsim.com/all-about-gazebo-9-with-ros/) Gazebo to version 9.x
+ 
+
 
 
 	
