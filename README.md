@@ -84,7 +84,10 @@ Now, let's install the Kinova MOVO packages.
 
 * ***3.3 Build the Workspace***
 
-	<span style="background-color: #FFFF00"> Note: </span> There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
+	```diff 
+		Note: 
+	``` 
+There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
 
 	* Go to ROS catkin workspace ``` cd ~/catkin_ws ```
 
@@ -110,21 +113,30 @@ Currently, there are 11 packages that are causing error messages if we do comman
 
 * Problematic packages cause by corresponding .cpp files:
 
-	* ```kinect2_registration ```
+	* ```kinect2_registration ```, caused by [kinect2_registration.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/iai_kinect2/kinect2_registration/src/kinect2_registration.cpp)
 
-	* ```gazebo_force_based_move ```
+	* ```gazebo_force_based_move ```, caused by [gazebo_ros_force_based_move.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_force_based_move/src/gazebo_ros_force_based_move.cpp)
 
-	* ```gazebo_grasp_plugin ```
+	* ```gazebo_grasp_plugin ```, caused by [GazeboGraspFix.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/gazebo_grasp_plugin/src/GazeboGraspFix.cpp)
 
-	* ```range_sensor_filters ```
+	* ```range_sensor_filters ```, caused by [range_sensor_filters.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_robot/movo_sensor_filters/range_sensor_filters/src/range_sensor_filters.cpp)
 
-	* ```roboticsgroup_gazebo_plugins ```
+	* ```roboticsgroup_gazebo_plugins ```, caused by [mimic_joint_plugin.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_simulation/movo_gazebo_plugins/roboticsgroup_gazebo_plugins/src/mimic_joint_plugin.cpp)
 
-	* ```eband_local_planner ```
+	* ```eband_local_planner ```, caused by [eband_local_planner_ros.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/eband_local_planner/src/eband_local_planner_ros.cpp)
 
-	* ```movo_assisted_teleop ```
+	* ```movo_assisted_teleop ```, caused by [movo_assisted_teleop.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_navigation/movo_assisted_teleop/src/movo_assisted_teleop.cpp)
 
-	* ```joint_trajectory_controller ```
+	* ```joint_trajectory_controller ```, caused by [joint_trajectory_controller.cpp](https://github.com/Kinovarobotics/kinova-movo/blob/master/movo_common/movo_third_party/joint_trajectory_controller/src/joint_trajectory_controller.cpp)
 
-	
+## 5. Helpful Links
+
+```
+ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+
 	
