@@ -66,7 +66,7 @@ Note: Gazebo 9.x is the official version fully integrated and supported by ROS M
 
 ## 3. Install and Launch Kinova MOVO
 
-Now, let's install the Kinova MOVO simulator.
+Now, let's install the Kinova MOVO packages.
 
 * ***3.1 Download from the [Official Repository](https://github.com/Kinovarobotics/kinova-movo)***
 
@@ -84,7 +84,7 @@ Now, let's install the Kinova MOVO simulator.
 
 * ***3.3 Build the Workspace***
 
-	Note: there are some packages (see Section 4) that are problematic, so we will ignore them temporarily, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
+	<mark> Note: </mark> There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
 
 	* Go to ROS catkin workspace ``` cd ~/catkin_ws ```
 
@@ -92,14 +92,15 @@ Now, let's install the Kinova MOVO simulator.
 
 		``` catkin_make -DCATKIN_BLACKLIST_PACKAGES="kinect2_bridge;kinect2_calibration;kinect2_viewer;kinect2_registration;gazebo_force_based_move;gazebo_grasp_plugin;range_sensor_filters;roboticsgroup_gazebo_plugins;eband_local_planner;movo_assisted_teleop;joint_trajectory_controller" ```
 
-		Note: if you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do ``` catkin_make ``` again.
+		If you get any CMake Error like "Could not find a package configuration file provided by ...", simply [do this](https://github.com/tu-darmstadt-ros-pkg/hector_quadrotor/issues/73#issuecomment-539649217); then do catkin_make command above again.
 
 * ***3.4 Lauch Kinova MOVO***
 
-	Now, Kinova MOVO simulation can be launched in Gazebo using command 
+	Now, Kinova MOVO simulation can be launched in Gazebo using command ```roslaunch movo_gazebo movo.launch ```
 
-	```roslaunch movo_gazebo movo.launch ```
+## 4. Problematic MOVO Packages
 
+There are currently 11 packages that are causing error messages if we do command ```cd ~/catkin_ws && catkin_make ``` directly:
 
 	
 	
