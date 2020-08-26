@@ -84,7 +84,7 @@ Now, let's install the Kinova MOVO packages.
 
 * ***3.3 Build the Workspace***
 
-	<mark> Note: </mark> There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
+	<span style="background-color: #FFFF00"> Note: </span> There are some packages (see next section) that are causing problems, so we will ignore them for now when we are building the workspace, and we will use command [catkin_make -DCATKIN_BLACKLIST_PACKAGES](https://answers.ros.org/question/54181/how-to-exclude-one-package-from-the-catkin_make-build/) to [blacklist them](https://github.com/catkin/catkin_tools/pull/152).
 
 	* Go to ROS catkin workspace ``` cd ~/catkin_ws ```
 
@@ -96,11 +96,35 @@ Now, let's install the Kinova MOVO packages.
 
 * ***3.4 Lauch Kinova MOVO***
 
-	Now, Kinova MOVO simulation can be launched in Gazebo using command ```roslaunch movo_gazebo movo.launch ```
+	Now, Kinova MOVO simulation can be launched in Gazebo using command 
+
+	```roslaunch movo_gazebo movo.launch ```
 
 ## 4. Problematic MOVO Packages
 
-There are currently 11 packages that are causing error messages if we do command ```cd ~/catkin_ws && catkin_make ``` directly:
+Currently, there are 11 packages that are causing error messages if we do command ```cd ~/catkin_ws && catkin_make ``` directly, either because of missing Freenect2 files or compilation errors from .cpp files in its src folder.
+
+* Problematic packages cause by Freenect2:
+
+	```kinect2_bridge ```, ```kinect2_calibration```, and ``` kinect2_viewer ```,  all in movo_common/movo_third_party/[iai_kinect2](https://github.com/Kinovarobotics/kinova-movo/tree/master/movo_common/movo_third_party/iai_kinect2)
+
+* Problematic packages cause by corresponding .cpp files:
+
+	* ```kinect2_registration ```
+
+	* ```gazebo_force_based_move ```
+
+	* ```gazebo_grasp_plugin ```
+
+	* ```range_sensor_filters ```
+
+	* ```roboticsgroup_gazebo_plugins ```
+
+	* ```eband_local_planner ```
+
+	* ```movo_assisted_teleop ```
+
+	* ```joint_trajectory_controller ```
 
 	
 	
